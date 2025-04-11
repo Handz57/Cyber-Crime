@@ -1,0 +1,471 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #171c2d;
+    min-height: 350vh;
+    height: 100%;
+}
+
+
+/* Hero */
+.hero {
+    height: 100vh;
+    background: linear-gradient(to right, rgba(12, 15, 96, 0.658) 20%, rgba(0,0,0,0) 50%), 
+                url("img/hero.jpg") no-repeat center center;
+    background-size: cover;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    bottom: -10vh;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    background: linear-gradient(to top, rgb(23, 28, 45, 1) 33%, rgba(0, 0, 0, 0));
+    z-index: 1;
+}
+
+.hero-text {
+    text-align: left;
+    position: absolute;
+    top: 30%;
+    left: 7%;
+    transform: translate(-50% 50%);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.6s ease;
+    z-index: 10;
+}
+
+.hero-text h1 {
+    font-size: 55px;
+}
+
+.hero-text p {
+    font-size: 23px;
+    margin-top:15px;
+}
+
+/* Navbar */
+nav {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.6s ease;
+    z-index: 1000;
+}
+
+nav.sticky {
+    padding: 15px 20px;
+    background: #283655;
+}
+
+.nav-content {
+    display: flex;
+    height: 100%;
+    max-width: 1200px;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo a {
+    color: #fff;
+    font-size: 2.5em;
+    font-weight: 700;
+    transition: 0.6s ease;
+}
+
+.nav-content ul {
+    display: flex;
+    align-items: center;
+}
+
+.nav-content ul li {
+    list-style: none;
+    margin: 0 10px;
+}
+
+.nav-content ul li a {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+    padding: 10px 4px;
+    transition: transform 0.6s ease;
+}
+
+.nav-content ul li a:hover {
+    transform: scale(1.3);
+}
+
+.divider {
+    width: 80%;
+    height: 4px;
+    background: linear-gradient(to right, rgb(255, 0, 68), rgb(183, 0, 255));
+    margin: 20px auto;
+    border-radius: 2px;
+}
+
+/* Split image & text */
+.split-img {
+    position: absolute;
+    left: 11%;
+    top: 80%;
+    width: 70%;
+    z-index: 5;
+}
+
+.split-img img {
+    max-width: 320px;
+    float: left;
+    border: 3px solid #283655;
+    border-radius: 10px;
+    margin-right: 45px;
+    box-shadow: 0px 10px 30px -5px rgba(0,0,0,0.8);
+}
+
+.text-box {
+    color: #fff;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.text-box h2 {
+    margin-top: 30px;
+    font-size: 40px;
+}
+
+.text-box p {
+    text-align: justify;
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+/* Card stunning animation */
+.card-section {
+    height: 100vh;
+}
+
+.title {
+    color: white;
+    font-size: 45px;
+    top: 15%;
+    left: 11%;
+    position: absolute;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    margin-top: 25%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    height: 350px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+    margin-top: 90px;
+}
+
+.card {
+    width: 80px;
+    border-radius: .85rem;
+    background-size: cover;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 2rem;
+    margin: 0 10px;
+    display: flex;
+    align-items: flex-end;
+    transition: 0.8s;
+    box-shadow: 0px 10px 30px -5px rgba(0,0,0,0.8);
+}
+
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4) ;
+}
+
+.card > .row {
+    color: white;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+
+.card > .row > .icon {
+    background: #223;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
+
+.card > .row > .description {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    height: 80px;
+    width: 520px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition-delay: .3s;
+    transition: all .3s ease;
+}
+
+.description h4 {
+    text-transform: uppercase;
+}
+
+input {
+    display: none;
+}
+
+input:checked + label {
+    width: 600px;
+}
+
+input:checked + label .description {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.card[for="c1"] {
+    background-image: url("/img/phishing.jpg");
+}
+
+.card[for="c2"] {
+    background-image: url("img/malware.jpg");
+}
+
+.card[for="c3"] {
+    background-image: url("img/cyberbullying.png");
+}
+
+.card[for="c4"] {
+    background-image: url("img/carding.jpg");
+}
+
+.card[for="c5"] {
+    background-image: url("img/cracking.png");
+}
+
+/* Modal dengan efek blur */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px); /* Efek blur di latar belakang */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Konten modal */
+.modal-content {
+    background: black;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    width: 720px;
+    height: 350px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    color: rgb(255, 249, 249);
+    animation: fadeIn 0.3s ease-in-out;
+    font-family: 'Poppins', sans-serif;
+}
+
+.modal-content h2 {
+    text-align: left;
+    margin-top: 10px;
+}
+
+.modal-content p {
+    margin-top: 10px;
+}
+
+.modal-content img {
+    width: 150%;
+    max-width: 300px;
+    display: block;
+    margin: 1px;
+    margin-right: 20px;
+    left: 20px;
+    float: left;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Tombol close */
+.close {
+    position: absolute;
+    top: 120px;
+    right: 280px;
+    font-size: 35px;
+    cursor: pointer;
+    color: red;
+    transition: 0.3s;
+}
+
+.close:hover {
+    transform: scale(1.5);
+    color: rgba(255, 0, 0, 0.404);
+}
+
+/* Animasi muncul */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.card-modal {
+    color: black;
+    opacity: 1;
+    font-style: normal;
+    font-family: 'Bad script', cursive;
+    font-weight: 700;
+}
+
+.card-modal:hover {
+    color: black;
+    opacity: 0.5;
+}
+
+/* Accordion */
+.cr-pencegah {
+    color: white;
+    font-size: 45px;
+    top: 270%;
+    left: 11%;
+    position: absolute;
+    font-family: 'Poppins', sans-serif;
+}
+
+.accordion {
+    width: 990px;
+    margin-top: 11%;
+    margin-left: 11%;
+    background: transparent;
+    border-radius: 8px;
+    box-shadow: 0px 10px 30px -5px rgba(0,0,0,0.8);
+}
+
+.accordion .accordion-content {
+    top: 50%;
+    left: 100%;
+    margin: 10px 0;
+    border-radius: 4px;
+    background: transparent;
+    overflow: hidden;
+    background-color: #283655;
+    box-shadow: 0px 10px 30px -5px rgba(0,0,0,0.8);
+}
+
+.accordion-content header {
+    min-height: 50px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s linear;
+}
+.accordion-content.open {
+    min-height: 35px;
+}
+
+.accordion-content header .accordion-title {
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.accordion-content header {
+    font-size: 25px;
+    color: #fff;
+}
+
+.accordion-content.open header {
+    padding-bottom: 10px;
+}
+
+.accordion-content .accordion-desc {
+    line-height: 1.5;
+    height: 0px;
+    color: white;
+    padding: 0 15px;
+    font-size: 15px;
+    overflow: hidden;
+    font-weight: 400;
+    transition: all 0.2s linear;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Footer */
+footer {
+    margin-top: 5%;
+    position: relative;
+    background: #283655;
+    width: 100%;
+    height: 100px;
+    justify-items: center;
+    align-content: center;
+}
+
+footer p {
+    color: white;
+    text-align: center;
+    font-size: 1.1em;
+    font-family: 'Roboto Mono', monospace;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        scale: 0.5;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+.block {
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 35%;
+}
